@@ -3,21 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Biling one</title>
+    <script>
+        function hitungBiling(){
+            event.preventDefault()
+            const jumlahDetik = perseInt(document.getElementById('JumlahDetik').values);
+            const PulsaPer45Detik = 30; // 1 pulsa = 30 rupiah = 45 detik
+
+            const jumlahPulsa = Math.ceil(JumlahDetik / 45);
+            const totalBiaya = JumlahPulsa * pulsaPer45Detik;
+
+            document.getElementById('Hasil').innerHTML = 
+                 jumlah Detik Pemakaian: ${jumlahDetik}\n +
+                 jumlah Pulsa: ${jumlahPulsa}\n +
+                 total Biaya: ${totalBiaya}; 
+                }
+    </script>
 </head>
 <body>
-    <div class="detik">
-    <script type="text/javascript">
+    <h1>Perhitungan Billing online</h1>
+    <form onsubmit="hitungBilling()">
+    <label for="jumlahDetik">Jumlah Detik Pemakaian:</label>
+    <input type="number" id="JumlahDetik" name="JumlahDetik" required><br><br>
 
-        var secondsInput = parseInt(prompt("Masukkan jumlah detik pemakaian:"));
-        var pulsa = 30 / 45;
-
-        var biaya = secondsInput * pulsa;
-
-        document.write("<h2> Tagihan </h2>");
-        document.write("Total detik: " + secondsInput + "detik<br>");
-        document.write("Total biaya: Rp " + biaya.toFixed(2));
-    </script>
-
+    <button type="submit">Hitung Biaya</button>
+</form>
+<p id="hasil"></p>
 </body>
 </html>
